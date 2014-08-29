@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://news.rest.org" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://news.rest.org" xmlns:intf="http://news.rest.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://news.rest.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="deleteAll">
+    <complexType/>
+   </element>
+   <element name="deleteAllResponse">
+    <complexType/>
+   </element>
+   <element name="findAll">
+    <complexType/>
+   </element>
+   <element name="findAllResponse">
+    <complexType>
+     <sequence>
+      <element name="findAllReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="findNewest">
+    <complexType/>
+   </element>
+   <element name="findNewestResponse">
+    <complexType>
+     <sequence>
+      <element name="findNewestReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteNewest">
+    <complexType/>
+   </element>
+   <element name="deleteNewestResponse">
+    <complexType/>
+   </element>
+   <element name="deleteById">
+    <complexType>
+     <sequence>
+      <element name="NewsID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteByIdResponse">
+    <complexType/>
+   </element>
+   <element name="findById">
+    <complexType>
+     <sequence>
+      <element name="NewsID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findByIdResponse">
+    <complexType>
+     <sequence>
+      <element name="findByIdReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="findAllRequest">
+
+      <wsdl:part element="impl:findAll" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findNewestRequest">
+
+      <wsdl:part element="impl:findNewest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteNewestResponse">
+
+      <wsdl:part element="impl:deleteNewestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByIdResponse">
+
+      <wsdl:part element="impl:findByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findByIdRequest">
+
+      <wsdl:part element="impl:findById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteNewestRequest">
+
+      <wsdl:part element="impl:deleteNewest" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteByIdRequest">
+
+      <wsdl:part element="impl:deleteById" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAllRequest">
+
+      <wsdl:part element="impl:deleteAll" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findAllResponse">
+
+      <wsdl:part element="impl:findAllResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteByIdResponse">
+
+      <wsdl:part element="impl:deleteByIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteAllResponse">
+
+      <wsdl:part element="impl:deleteAllResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findNewestResponse">
+
+      <wsdl:part element="impl:findNewestResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="NewsResource">
+
+      <wsdl:operation name="deleteAll">
+
+         <wsdl:input message="impl:deleteAllRequest" name="deleteAllRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteAllResponse" name="deleteAllResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findAll">
+
+         <wsdl:input message="impl:findAllRequest" name="findAllRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findAllResponse" name="findAllResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findNewest">
+
+         <wsdl:input message="impl:findNewestRequest" name="findNewestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findNewestResponse" name="findNewestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteNewest">
+
+         <wsdl:input message="impl:deleteNewestRequest" name="deleteNewestRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteNewestResponse" name="deleteNewestResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteById">
+
+         <wsdl:input message="impl:deleteByIdRequest" name="deleteByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteByIdResponse" name="deleteByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findById">
+
+         <wsdl:input message="impl:findByIdRequest" name="findByIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findByIdResponse" name="findByIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="NewsResourceSoapBinding" type="impl:NewsResource">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="deleteAll">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findAll">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findAllRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findAllResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findNewest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findNewestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findNewestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteNewest">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteNewestRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteNewestResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="findById">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findByIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findByIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="NewsResourceService">
+
+      <wsdl:port binding="impl:NewsResourceSoapBinding" name="NewsResource">
+
+         <wsdlsoap:address location="http://localhost:8080/RESTful_NewsMavenized/services/NewsResource"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

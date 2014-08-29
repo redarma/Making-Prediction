@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from NewsResourceService WSDL service -->
+
+  <service name="NewsResource" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://news.rest.org"/>
+      <parameter name="wsdlServiceElement" value="NewsResourceService"/>
+      <parameter name="schemaQualified" value="http://news.rest.org"/>
+      <parameter name="wsdlServicePort" value="NewsResource"/>
+      <parameter name="className" value="org.rest.news.NewsResource"/>
+      <parameter name="wsdlPortType" value="NewsResource"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://news.rest.org" name="deleteAll" qname="operNS:deleteAll" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://news.rest.org" xmlns:retNS="http://news.rest.org" xmlns:rtns="http://news.rest.org" xmlns:tns="http://news.rest.org" name="findAll" qname="operNS:findAll" returnQName="retNS:findAllReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://news.rest.org" xmlns:retNS="http://news.rest.org" xmlns:rtns="http://news.rest.org" xmlns:tns="http://news.rest.org" name="findNewest" qname="operNS:findNewest" returnQName="retNS:findNewestReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://news.rest.org" name="deleteNewest" qname="operNS:deleteNewest" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://news.rest.org" name="deleteById" qname="operNS:deleteById" soapAction="">
+        <parameter xmlns:pns="http://news.rest.org" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:NewsID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://news.rest.org" xmlns:retNS="http://news.rest.org" xmlns:rtns="http://news.rest.org" xmlns:tns="http://news.rest.org" name="findById" qname="operNS:findById" returnQName="retNS:findByIdReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+        <parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" xmlns:pns="http://news.rest.org" qname="pns:NewsID" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="deleteById deleteAll findById deleteNewest findNewest findAll"/>
+
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findNewestResponse" type="java:org.rest.news.FindNewestResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findById" type="java:org.rest.news.FindById" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteAll" type="java:org.rest.news.DeleteAll" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findByIdResponse" type="java:org.rest.news.FindByIdResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://news.rest.org" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteById" type="java:org.rest.news.DeleteById" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteNewest" type="java:org.rest.news.DeleteNewest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteByIdResponse" type="java:org.rest.news.DeleteByIdResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteNewestResponse" type="java:org.rest.news.DeleteNewestResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findNewest" type="java:org.rest.news.FindNewest" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;deleteAllResponse" type="java:org.rest.news.DeleteAllResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findAll" type="java:org.rest.news.FindAll" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://news.rest.org" qname="ns:&gt;findAllResponse" type="java:org.rest.news.FindAllResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>
